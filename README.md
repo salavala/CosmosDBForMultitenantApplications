@@ -1,6 +1,5 @@
-# deployADF
+# Deploy ADF, Cosmos DB, ADLS Gen2
 
-Deploys
 1. Azure Cosmos DB
 2. Azure Data Lake Storage Gen2
 3. Azure Data Factory
