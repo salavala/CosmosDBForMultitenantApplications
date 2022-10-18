@@ -1,0 +1,201 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.5.6.12127",
+      "templateHash": "3973803974471500583"
+    }
+  },
+  "parameters": {
+    "cosmosDbAccountName": {
+      "type": "string",
+      "defaultValue": "[format('cosmosdb{0}', uniqueString(resourceGroup().id))]",
+      "metadata": {
+        "description": "Cosmos DB account name, max length 44 characters, lowercase"
+      }
+    },
+    "cosmosDbLocation": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for the Cosmos DB account."
+      }
+    },
+     "cosmosDbDatabaseName": {
+      "type": "string",
+      "defaultValue":"database1",
+      "metadata": {
+        "description": "CosmosDB Database name"
+      }
+    },
+    "cosmosDbContainerName": {
+      "type": "string",
+      "defaultValue":"container1",
+      "metadata": {
+        "description": "The name for the CosmosDb container"
+      }
+    },
+    "storageAccountName": {
+      "type": "string",
+      "defaultValue": "[format('storage{0}', uniqueString(resourceGroup().id))]",
+      "metadata": {
+        "description": "The name of the Storage Account"
+      }
+    },
+    "storageAccountLocation": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for the Cosmos DB account."
+      }
+    },
+    "dataFactoryName": {
+      "type": "string",
+      "defaultValue":"[format('adf{0}', uniqueString(resourceGroup().id))]",
+      "metadata": {
+        "description": "The name of the Data Factory"
+      }
+    },
+    "dataFactoryLocation": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location of the data factory."
+      }
+    }
+  },
+  "variables": {
+    "azureCosmosLinkedServiceName": "AzureCosmosLinkedService",
+    "azureStorageLinkedServiceName":"AzureStorageLinkedSerivce"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2021-06-01",
+      "name": "[parameters('storageAccountName')]",
+      "location": "[parameters('storageAccountLocation')]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "StorageV2",
+      "properties": {}
+    },
+    {
+      "type": "Microsoft.DocumentDB/databaseAccounts",
+      "apiVersion": "2022-05-15",
+      "name": "[parameters('cosmosDbAccountName')]",
+      "kind": "GlobalDocumentDB",
+      "location": "[parameters('cosmosDbLocation')]",
+      "properties": {
+        "databaseAccountOfferType": "Standard",
+        "consistencyPolicy": {
+          "defaultConsistencyLevel": "Session"
+        },
+        "locations": [
+          {
+            "locationName": "[parameters('cosmosDbLocation')]"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases",
+      "apiVersion": "2022-05-15",
+      "name": "[format('{0}/{1}', toLower(parameters('cosmosDbAccountName')), parameters('cosmosDbDatabaseName'))]",
+      "properties": {
+        "resource": {
+          "id": "[parameters('cosmosDbDatabaseName')]"
+        },
+        "options": {
+          "throughput": 1000
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts', toLower(parameters('cosmosDbAccountName')))]"
+      ]
+    },
+    {
+      "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers",
+      "apiVersion": "2022-05-15",
+      "name": "[format('{0}/{1}/{2}', toLower(parameters('cosmosDbAccountName')), parameters('cosmosDbDatabaseName'), parameters('cosmosDbContainerName'))]",
+      "properties": {
+        "resource": {
+          "id": "[parameters('cosmosDbContainerName')]",
+          "partitionKey": {
+            "paths": [
+              "/myPartitionKey"
+            ],
+            "kind": "Hash"
+          },
+          "indexingPolicy": {
+            "indexingMode": "consistent",
+            "includedPaths": [
+              {
+                "path": "/*"
+              }
+            ],
+            "excludedPaths": [
+              {
+                "path": "/_etag/?"
+              }
+            ]
+          }
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlDatabases', toLower(parameters('cosmosDbAccountName')), parameters('cosmosDbDatabaseName'))]"
+      ]
+    },
+    {
+      "type": "Microsoft.DataFactory/factories",
+      "apiVersion": "2018-06-01",
+      "name": "[parameters('dataFactoryName')]",
+      "location": "[parameters('dataFactoryLocation')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('cosmosDbAccountName'))]"
+        ],
+      "identity": {
+        "type": "SystemAssigned"
+      },
+      "properties": {},
+      "resources": [
+        {
+            "type": "linkedservices",
+            "name": "[variables('azureStorageLinkedServiceName')]",
+            "dependsOn": [
+              "[parameters('dataFactoryName')]"
+            ],
+            "apiVersion": "2018-06-01",
+            "properties": {
+              "type": "AzureBlobFS",
+              "description": "Azure Storage linked service",
+              "typeProperties": {
+                "url": "[concat('https://', parameters('storageAccountName'), '.dfs.core.windows.net')]",
+                "accountKey": {
+                        "type": "SecureString",
+                        "value": "[listKeys(parameters('storageAccountName'), '2019-04-01').keys[0].value]"
+                    }
+              }
+            }
+        },
+        {
+          "type": "linkedservices",
+          "name": "[variables('azureCosmosLinkedServiceName')]",
+          "dependsOn": [
+            "[parameters('dataFactoryName')]"
+          ],
+          "apiVersion": "2018-06-01",
+          "properties": {
+            "type": "CosmosDb",
+            "description": "Azure CosmosDB linked service",
+            "typeProperties": {
+                "connectionString": "[concat('AccountEndpoint=https://', parameters('cosmosDbAccountName'), '.documents.azure.com:443/;Database=',parameters('cosmosDbDatabaseName'),';AccountKey=', listKeys(parameters('cosmosDbAccountName'), '2019-12-12').primaryMasterKey, ';')]"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
