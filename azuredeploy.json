@@ -11,58 +11,37 @@
   "parameters": {
     "cosmosDbAccountName": {
       "type": "string",
-      "defaultValue": "[format('cosmosdb{0}', uniqueString(resourceGroup().id))]",
+      "defaultValue": "",
       "metadata": {
-        "description": "Cosmos DB account name, max length 44 characters, lowercase"
-      }
-    },
-    "cosmosDbLocation": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]",
-      "metadata": {
-        "description": "Location for the Cosmos DB account."
+        "description": "Cosmos DB account name. Must be between 3 and 44 characters long. Can only contain lowercase letters, numbers and hyphens. Can not start or end with hyphens."
       }
     },
      "cosmosDbDatabaseName": {
       "type": "string",
-      "defaultValue":"database1",
+      "defaultValue":"",
       "metadata": {
-        "description": "CosmosDB Database name"
+        "description": "CosmosDB Database name."
       }
     },
     "cosmosDbContainerName": {
       "type": "string",
-      "defaultValue":"container1",
+      "defaultValue":"",
       "metadata": {
-        "description": "The name for the CosmosDb container"
+        "description": "CosmosDb container name. "
       }
     },
     "storageAccountName": {
       "type": "string",
-      "defaultValue": "[format('storage{0}', uniqueString(resourceGroup().id))]",
+      "defaultValue": "",
       "metadata": {
-        "description": "The name of the Storage Account"
-      }
-    },
-    "storageAccountLocation": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]",
-      "metadata": {
-        "description": "Location for the Cosmos DB account."
+        "description": "The name of the Storage Account. Name can contain only lowercase characters and numbers between 3 and 24 characters."
       }
     },
     "dataFactoryName": {
       "type": "string",
-      "defaultValue":"[format('adf{0}', uniqueString(resourceGroup().id))]",
+      "defaultValue":"",
       "metadata": {
-        "description": "The name of the Data Factory"
-      }
-    },
-    "dataFactoryLocation": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]",
-      "metadata": {
-        "description": "Location of the data factory."
+        "description": "The name of the Data Factory. Can only contain letters, numbers and hyphens. Can not start or end with hyphens or spaces."
       }
     }
   },
@@ -75,7 +54,7 @@
       "type": "Microsoft.Storage/storageAccounts",
       "apiVersion": "2021-06-01",
       "name": "[parameters('storageAccountName')]",
-      "location": "[parameters('storageAccountLocation')]",
+      "location": "[resourceGroup().location]",
       "sku": {
         "name": "Standard_LRS"
       },
@@ -87,7 +66,7 @@
       "apiVersion": "2022-05-15",
       "name": "[parameters('cosmosDbAccountName')]",
       "kind": "GlobalDocumentDB",
-      "location": "[parameters('cosmosDbLocation')]",
+      "location": "[resourceGroup().location]",
       "properties": {
         "databaseAccountOfferType": "Standard",
         "consistencyPolicy": {
@@ -152,7 +131,7 @@
       "type": "Microsoft.DataFactory/factories",
       "apiVersion": "2018-06-01",
       "name": "[parameters('dataFactoryName')]",
-      "location": "[parameters('dataFactoryLocation')]",
+      "location": "[resourceGroup().location]",
       "dependsOn": [
         "[resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('cosmosDbAccountName'))]"
         ],
