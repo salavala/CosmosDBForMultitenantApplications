@@ -6,4 +6,4 @@
 4. Configures Linked Services in ADF for both the Cosmos DB and ADLS Gen2
 5. Configures Datasets for the 4 Cosmos Db containers and the 2 ADLS containers
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FhosaiGitHub%2FdeployADF%2Fmain%2Fazuredeploy.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsalavala%2FCosmosDBForMultitenantApplications%2Fmain%2Fazuredeploy.json)
