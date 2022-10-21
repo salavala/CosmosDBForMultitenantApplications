@@ -1,4 +1,6 @@
-# Deploy ADF, Cosmos DB, ADLS Gen2
+
+
+# Azure Cosmos DB for Multitenant Applications Workshop
 
 1. Azure Cosmos DB with 4 containers
 2. Azure Data Lake Storage Gen2 with 2 containers
