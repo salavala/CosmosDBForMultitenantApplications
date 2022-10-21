@@ -20,19 +20,19 @@ Sample of of the data
 
 ## Challenge-1: Deploy Azure Services  
 
-1. Click the "Deploy to Azure" button
+1.1 Click the "Deploy to Azure" button
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsalavala%2FCosmosDBForMultitenantApplications%2Fmain%2Fazuredeploy.json)
 
-2. It display a custom deployment screen as shown below.
+1.2. It display a custom deployment screen as shown below.
 
 <img src="./images/Deploy_CosmosDBMultTenant_Lab_Services.jpg" alt="Azure Custom Depolyment Screen" Width="600">
 	
-2.1 Select your region from the dropdown list for example "East US 2".
+1.3 Select your region from the dropdown list for example "East US 2".
 
-2.2 Click on "Review+create" button.
+1.4 Click on "Review+create" button.
 
-2.3 It completes the validation as the next step and click on 'create' button.
+1.5 It completes the validation as the next step and click on 'create' button.
 
 It will create the following services in your subscription:
 * Azure Cosmos DB with 4 containers
@@ -43,13 +43,31 @@ It will create the following services in your subscription:
 
 It may take 2 to 5 minutes to create the services.
 
-2.4 Click on "Go to resource group" when the deployment is complete.
+1.6 Click on "Go to resource group" when the deployment is complete.
 <img src="./images/Deploy_CosmosDBMultTenant_Lab_Services_Complete.jpg" alt="Deployment complete" Width="600">
 
 It will take you to your resource group showing the installed services.
-<img src="./images/MulittenantCosmosDB_ResourceGroup.jpg" alt-"Resource Group with Services list" Width="600">
+<img src="./images/MulittenantCosmosDB_ResourceGroup.jpg" alt="Resource Group with Services list" Width="600">
+
 
 ## Challenge-2: Load data into Azure Storage Account
+
+2.1 Select Azure Data Factory service from the list.
+
+It will show you the overview page of the ADF Service.
+
+2.2 Click on the launch button to launch the designer studio for building the pipelines.
+<img src="./images/MulittenantCosmosDB_LaunchADFStudio.jpg" alt="Launch ADF Studio" Width="600">
+
+It will open Azure DataFactory Studio in a new window tab. 
+
+2.2 Select "Admin" box as shown in the picture to validate the Data Source linking services
+<img src="./images/MulittenantCosmosDB_ADFLandingPage.jpg" alt="ADF Studio Landing Page" Width="600">
+
+It will take you to the admin page. Select the "linked services"" if it is not selected already. 
+
+It will list the data source connection services to Cosmos DB and Storage account.
+<img src="./images/MulittenantCosmosDB_ADF_Verify_linked_Services.jpg" alt="list ADF Linked Services" Width="600">
 
 ## Challenge-3: Validate Partitioning Strategies
 1. Partitioning Strategy for many Small size customers
