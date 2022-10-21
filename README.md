@@ -41,12 +41,13 @@ It will create the following services in your subscription:
 * Configures Linked Services in ADF for both the Cosmos DB and ADLS Gen2
 * Configures Datasets for the 4 Cosmos Db containers and the 2 ADLS containers
 
-It may take 2 to 5 minutes to create the services... 
+It may take 2 to 5 minutes to create the services.
+
 2.4 Click on "Go to resource group" when the deployment is complete.
 <img src="./images/Deploy_CosmosDBMultTenant_Lab_Services_Complete.jpg" alt="Deployment complete" Width="600">
 
-* It will take you to your resource group showing the installed services.
-<img src="./images/MulittenantCosmosDB_ResourceGroup.jpg" alt-"Resource Group with Services list">
+It will take you to your resource group showing the installed services.
+<img src="./images/MulittenantCosmosDB_ResourceGroup.jpg" alt-"Resource Group with Services list" Width="600">
 
 ## Challenge-2: Load data into Azure Storage Account
 
