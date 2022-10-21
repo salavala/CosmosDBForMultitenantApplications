@@ -28,9 +28,9 @@ Sample of of the data
 
 <img src="./images/Deploy_CosmosDBMultTenant_Lab_Services.jpg" alt="Azure Custom Depolyment Screen" Width="600">
 	
-Select your region from the dropdown list for example "East US 2"
-Click on "Review+create" button. 
-It completes the validation as the next step and click on 'create' button.
+. Select your region from the dropdown list for example "East US 2"
+. Click on "Review+create" button. 
+. It completes the validation as the next step and click on 'create' button.
 
 It will create the following services in your subscription:
 1. Azure Cosmos DB with 4 containers
