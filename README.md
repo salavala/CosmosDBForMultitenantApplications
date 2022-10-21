@@ -28,8 +28,8 @@ Sample of of the data
 
 <img src="./images/Deploy_CosmosDBMultTenant_Lab_Services.jpg" alt="Azure Custom Depolyment Screen" Width="600">
 	
-2.1 Select your region from the dropdown list for example "East US 2"
-2.2 Click on "Review+create" button. 
+2.1 Select your region from the dropdown list for example "East US 2"...
+2.2 Click on "Review+create" button... 
 2.3 It completes the validation as the next step and click on 'create' button.
 
 It will create the following services in your subscription:
