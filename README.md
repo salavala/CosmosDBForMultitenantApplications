@@ -20,14 +20,30 @@ Sample of of the data
 
 ## Challenge-1: Deploy Azure Services  
 
-You will be deploying the following when you click the button:
+1. Click the "Deploy to Azure" button
+
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsalavala%2FCosmosDBForMultitenantApplications%2Fmain%2Fazuredeploy.json)
+
+2. It display a custom deployment screen as shown below.
+
+<img src="./images/Deploy_CosmosDBMultTenant_Lab_Services.jpg" alt="Azure Custom Depolyment Screen" Width="600">
+	
+Select your region from the dropdown list for example "East US 2"
+Click on "Review+create" button. 
+It completes the validation as the next step and click on 'create' button.
+
+It will create the following services in your subscription:
 1. Azure Cosmos DB with 4 containers
 2. Azure Data Lake Storage Gen2 with 2 containers
 3. Azure Data Factory
 4. Configures Linked Services in ADF for both the Cosmos DB and ADLS Gen2
 5. Configures Datasets for the 4 Cosmos Db containers and the 2 ADLS containers
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsalavala%2FCosmosDBForMultitenantApplications%2Fmain%2Fazuredeploy.json)
+It may take 2 to 5 minutes to create the services. Click on "Go to resource group" when the deployment is complete.
+<img src="./images/Deploy_CosmosDBMultTenant_Lab_Services_Complete.jpg" alt="Deployment complete" Width="600">
+
+It will take your resource group showing the installed services.
+<img src="./images/MulittenantCosmosDB_ResourceGroup.jpg" alt-"Resource Group with Services list">
 
 ## Challenge-2: Load data into Azure Storage Account
 
@@ -39,7 +55,8 @@ You will be deploying the following when you click the button:
 
 ## Challeng-4: Build ADF pipelines to load data into Cosmos DB
 
-## Challeng-5: Query the data in Cosmos DB to validate the partitioning strategies
+## Challeng-5: Validate the partitioning strategies
+
 
 
 
