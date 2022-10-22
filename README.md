@@ -55,6 +55,13 @@ You have successfully deployed the services to Azure. Congratulations for comple
 
 ## Challenge-2: Load data in Azure Storage Account
 
+Download the sample test data from the repo data folder to your laptop folder
+
+Select the Storage Account Service from the Resource group Overview screen (above screen)
+
+
+
+
 ## Challenge-3: Design Cosmos DB Account to serve small, medium and large customers
 
 
