@@ -44,30 +44,52 @@ It will create the following services in your subscription:
 It may take 2 to 5 minutes to create the services.
 
 1.6 Click on "Go to resource group" when the deployment is complete.
+
 <img src="./images/Deploy_CosmosDBMultTenant_Lab_Services_Complete.jpg" alt="Deployment complete" Width="600">
 
 It will take you to your resource group showing the installed services.
+
 <img src="./images/MulittenantCosmosDB_ResourceGroup.jpg" alt="Resource Group with Services list" Width="600">
 
+You have successfully deployed the services to Azure. Congratulations for completing your first challenge.
 
-## Challenge-2: Load data into Azure Storage Account
+## Challenge-2: Load data in Azure Storage Account
 
-2.1 Select Azure Data Factory service from the list.
+## Challenge-3: Design Cosmos DB Account to serve small, medium and large customers
+
+
+## Challenge-4: Build ADF Pipelines to load data into Cosmos DB
+
+4.1 Select Azure Data Factory service from the above picture.
 
 It will show you the overview page of the ADF Service.
 
-2.2 Click on the launch button to launch the designer studio for building the pipelines.
+4.2 Click on the "Launch Studio" button to launch the designer studio for building the pipelines.
+
 <img src="./images/MulittenantCosmosDB_LaunchADFStudio.jpg" alt="Launch ADF Studio" Width="600">
 
-It will open Azure DataFactory Studio in a new window tab. 
+It will open up "Azure DataFactory Studio"" in a new window tab. 
 
-2.2 Select "Admin" box as shown in the picture to validate the Data Source linking services
+4.3 Select "Admin" box as shown in the picture to validate the Data Source Connection(Linked) services
+
 <img src="./images/MulittenantCosmosDB_ADFLandingPage.jpg" alt="ADF Studio Landing Page" Width="600">
 
 It will take you to the admin page. Select the "linked services"" if it is not selected already. 
 
-It will list the data source connection services to Cosmos DB and Storage account.
+It will list the data source linked services to Cosmos DB and Storage account.
+
 <img src="./images/MulittenantCosmosDB_ADF_Verify_linked_Services.jpg" alt="list ADF Linked Services" Width="600">
+
+4.4 Select Cosmos DB linked Service to test the connectivity.
+
+It will show the edit screen with the connection configuration. You can explore the options to authenticate 
+such as "Account Key", "Service Principal", "System Assigned Managed Identity", "User Assigned Managed Identity" 
+and access options such as "Cosmos DB Access Key" or ""Azure Key Vault".
+<img src="./images/" alt="Test Cosmos DB connectivity" Width="600">
+
+4.5 Click on "Test connection" to verify the connectivity.
+
+4.6 Follow the same way to test the connectivity to the storage account.
 
 ## Challenge-3: Validate Partitioning Strategies
 1. Partitioning Strategy for many Small size customers
