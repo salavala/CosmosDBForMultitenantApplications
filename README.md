@@ -55,11 +55,31 @@ You have successfully deployed the services to Azure. Congratulations for comple
 
 ## Challenge-2: Load data in Azure Storage Account
 
-Download the sample test data from the repo data folder to your laptop folder
+2.1 Download the sample test data from the repo data folder to your laptop folder
+<img src="./images/MulittenantCosmosDB_Storage_SampleDataSource.jpg" alt="Source Sample Data location" Width="600">
 
-Select the Storage Account Service from the Resource group Overview screen (above screen)
+2.2 Select the Storage Account Service from the Resource group Overview screen (above screen)
+<img src="./images/MulittenantCosmosDB_storage_container_selection.jpg" alt="select hotel storage container" Width="600">
 
+2.3 Upload Hotel booking data into hotel storage container.
 
+Click-1: Select Upload button on the hotel data container overview screen.
+
+Click-2: It will open up ""Upload blob"" window and Select the File Folder icon.
+
+Click-3: Browse through your laptop and select the downloaded 'multi_tenent_hotel_reservations.csv' file
+
+<img src="./images/MulittenantCosmosDB_storage_upload_hotel_data.jpg" alt="select sample data from laptop" Width="600">
+
+You would see csv file in the container after successful upload operation.
+<img src="./images/MulittenantCosmosDB_storage_hotel_data_loaded.jpg" alt="Uploaded hotel data file" Width="600">
+
+2.4 Select Containers bread crumb and then select 'rentdata' container from the list to upload the sample data.
+Repeat the above steps and upload data from 'mult_tenent_car_reservations.csv' file.
+
+You have successfully loaded the sample booking data into a storage account. 
+
+Congratulation, You have completed the second challenge and now you know how to store data in Azure Storage accounts!!
 
 
 ## Challenge-3: Design Cosmos DB Account to serve small, medium and large customers
