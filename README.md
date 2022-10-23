@@ -95,13 +95,10 @@ You have successfully deployed the services to Azure. Congratulations for comple
 
 2.3 Upload Hotel booking data into hotel storage container.
 
-Click-1: Select Upload button on the hotel data container overview screen.
-
-Click-2: It will open up ""Upload blob"" window and Select the File Folder icon.
-
-Click-3: Browse through your laptop and select the downloaded 'multi_tenent_hotel_reservations.csv' file
-
 <img src="./images/MulittenantCosmosDB_storage_upload_hotel_data.jpg" alt="select sample data from laptop" Width="600">
+Click-1: Select Upload button on the hotel data container overview screen.
+Click-2: It will open up ""Upload blob"" window and Select the File Folder icon.
+Click-3: Browse through your laptop and select the downloaded 'multi_tenent_hotel_reservations.csv' file
 
 You would see csv file in the container after successful upload operation.
 <img src="./images/MulittenantCosmosDB_storage_hotel_data_loaded.jpg" alt="Uploaded hotel data file" Width="600">
@@ -119,12 +116,10 @@ Congratulation, You have completed the second challenge and now you know how to 
 ## Challenge-3: Design Cosmos DB Accounts to serve small, medium and large customers
 
 Review the reservation data for Car and Hotel industries. 
-<img src="../images/MulittenantCosmosDB_DataModel_Architecture.jpg" alt="Application Data Model Architecture", Width="600">
+<img src="./images/MulittenantCosmosDB_DataModel_Architecture.jpg" alt="Application Data Model Architecture", Width="600">
 
 **TenantId**: Application has assigned a unique 'tenantId'' for each business entity.
-
 **TenantBizId**: Application has assigned a unique 'tenantBizId' for each of the serving offices with each business entity.
-
 **LocationId**: Application has assigned a unique "LocationId" for each address associated with an operating unit of all businesses. 
 
 ### Small size customers - 
