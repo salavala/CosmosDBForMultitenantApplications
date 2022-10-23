@@ -115,7 +115,8 @@ Congratulation, You have completed the second challenge and now you know how to 
 
 ## Challenge-3: Design Cosmos DB Accounts to serve small, medium and large customers
 
-Review the reservation data for Car and Hotel industries. 
+Review the reservation data for Car and Hotel industries:
+
 <img src="./images/MulittenantCosmosDB_DataModel_Architecture.jpg" alt="Application Data Model Architecture" Width="600">
 
 **TenantId**: Application has assigned a unique 'tenantId'' for each business entity.
@@ -124,21 +125,53 @@ Review the reservation data for Car and Hotel industries.
 
 **LocationId**: Application has assigned a unique "LocationId" for each address associated with an operating unit of all businesses. 
 
-### Small size customers - 
-Create a Shared container with partition key per tenant
+### Design Database for small size customers 
 
-### Partitioning Strategy for many mid size customers
-Group customer data into each container based on the line of business
+Let us assume that all customers are small and did not have lot of volume. Also assume that each query requires the TenantID.
+We can create a container with 'TenantId' as the parition key to separate each customer data in a logical partition (bucket). 
 
-Create container per each tenant 
+3.1 Review the container definition with 'TenantId' as the partition key.
+	Click-1: Access Cosmos DB account from the resource group.  
+	Click-2: Select Data Explorer from the left pane.
+	Click-3: expand 'strategy_AllTenats' container from 'bookingsdb' database
+	Click-4: select 'Settings'
 
-### Partitioning Strategy for large customers
-Create dedicated container per each tenant and restrict through put for a noisy neighbor 
-
-Create one database account for customer
+You will see the 'TenantId' as the partition key.
+<img src="./images/MulittenantCosmosDB_DB_AllTenants_Container.jpg" alt="All tenant Container config" Width="600">
 
 
-### Tenant Data larger than 20 GB: 
+### Partitioning Strategy to support different indexing requirement for each industry
+Azure Cosmos DB provides autoindexing for all attributes in a document. You can limit the indexing attributes to save data storage costs.
+You may have different indexing requirement for rental and hotel businesses application queries.
+For example reporting may demand to query data based on the room type for hotel data and by car size for rental car data.
+
+You can create separate containers for rental and car industries with 'TenantId' as the partition key. 
+
+3.2 Review 'strategy_by_BusinessLine' container definition designed to load one business line data.
+	Click-1: Expand 'strategy_by_BusinessLine' container
+	Click-2: select 'Settings'
+
+<img src="./images/MulittenantCosmosDB_DB_TenantsByBusinessLine_Container.jpg" alt="container by business config" Width="600">
+
+### Partitioning Strategy to support mid size customers
+You can partition data based an an unique attribute such as business locationId for each customer to support mid size customers. 
+You will have to make sure the data volume of each business location should not exceed 20GB limit of the logical partition size.
+
+3.3 Review the configuration set in the 'Strategy_by_BusinessTenant'container to partition the data by locationId.
+	Click-1: Expand 'Strategy_by_BusinessTenant' container definition
+	Click-2: select 'Settings'
+
+<img src="./images/MulittenantCosmosDB_DB_By_TenantBiz_Container.jpg" alt="container by business locations" Width="600">
+
+
+### Partitioning Strategy to combine multiple parameters as a synthetic key: 
+It is not easy to find a property with unique values to partition data. You can create composite value by combining properties.
+Azure Cosmos DB support synthetic key as a partition key.
+3.4 Review the container configuration with Synthetic partition key.
+	Click-1: Expand 'Strategy_by_SyntheticKey' container
+	Click-2: select 'Settings'
+Validate the Synthetic partition key.
+<img src="./images/MulittenantCosmosDB_DB_SyntheticCombo_Container.jpg" alt="Synthetic partition key container" Width="600">
 
 ## Challenge-4: Build ADF Pipelines to load data into Cosmos DB
 
