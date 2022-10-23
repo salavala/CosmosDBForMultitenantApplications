@@ -22,16 +22,16 @@ It currently has the following clients:
 
 Car Rental Industry:
 
-	1) **Value Rentals** with offices in Denver, Grand Canyon & Rapid City. 
-	2) **Luxury Rentals** with offices in Miami Beach & Daytona Beach.
-	3) **Spendless** Rentals with offices in New York, San Francisco, Orlando. 
+**Value Rentals** with offices in Denver, Grand Canyon & Rapid City. 
+**Luxury Rentals** with offices in Miami Beach & Daytona Beach.
+**Spendless** Rentals with offices in New York, San Francisco, Orlando. 
 
 Hotel Industry:
 
-	1) **GoodFellas** Hotels with offices in Atlanta, New York, San Francisco, Orlando, Los Angeles.
-	2) **Hiking Hotels** in Denver, Grand Canyon & Rapid City.
-	3) **Casino Hotels** in Los Vegas & Reno.
-	4) **FamilyFun Hotels** with offices in Disney World & Disney Land.
+**GoodFellas** Hotels with offices in Atlanta, New York, San Francisco, Orlando, Los Angeles.
+**Hiking Hotels** in Denver, Grand Canyon & Rapid City.
+**Casino Hotels** in Los Vegas & Reno.
+**FamilyFun Hotels** with offices in Disney World & Disney Land.
 
 Let us see how Azure Cosmos DB can be designed to support these small, medium and large customers.  
 
@@ -114,7 +114,9 @@ Review the reservation data for Car and Hotel industries.
 <img src="./images/MulittenantCosmosDB_DataModel_Architecture.jpg" alt="Application Data Model Architecture" Width="600">
 
 **TenantId**: Application has assigned a unique 'tenantId'' for each business entity.
+
 **TenantBizId**: Application has assigned a unique 'tenantBizId' for each of the serving offices with each business entity.
+
 **LocationId**: Application has assigned a unique "LocationId" for each address associated with an operating unit of all businesses. 
 
 ### Small size customers - 
