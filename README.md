@@ -3,12 +3,31 @@
 # Azure Cosmos DB for Multitenant Applications Workshop
 
 ## Cosmos DB Introduction
-Multi Tenancy Value
+
+Azure Cosmos DB is a fully managed NoSQL database for modern app development. You can build applications fast with open source APIs, multiple SDKs, schemaless data and no-ETL analytics over operational data.
+Single-digit millisecond response times, and instant scalability, guarantee speed at any scale.
+Guarantee business continuity, 99.999% availability and enterprise-grade security for every application.
+End-to-end database management, with serverless and automatic scaling matching your application and TCO needs.
+Supports multiple database APIs including native API for NoSQL, API for Mongo DB, Apache Cassandra, Apache Gremlin and Table.
+By using partitions with Azure Cosmos DB containers, you can create containers that are shared across multiple tenants. 
+With large containers, Azure Cosmos DB spreads your tenants across multiple physical nodes to acheive a high degree of scale.
+
 
 ## Business Scenario
+ISV company called Smart Booking Inc has built an on-line reservation application called "EasyReserveApp" and deployed to Car Rental and Hotel business industries. 
 
-List of companies and its business locations
-Sample of of the data
+It currently has the following clients:
+Car Rental Industry:
+	1) Value Rentals with offices in Denver, Grand Canyon & Rapid City. 
+	2) Luxury Rentals with offices in Miami Beach & Daytona Beach.
+	3) Spendless Rentals with offices in New York, San Francisco, Orlando. 
+Hotel Industry:
+	1) GoodFellas Hotels with offices in Atlanta, New York, San Francisco, Orlando, Los Angeles.
+	2) Hiking Hotels in Denver, Grand Canyon & Rapid City.
+	3) Casino Hotels in Los Vegas & Reno.
+FamilyFun Hotels with offices in Disney World & Disney Land.
+
+Let us see how Azure Cosmos DB can be designed to support these small, medium and large customers.  
 
 ## Architecture Solution Diagram
 <img src="./images/cosmos-lab-architecture.jpg" alt="Architecture for Azure Cosmos DB Lab" Width="600"> 
@@ -53,10 +72,12 @@ It will take you to your resource group showing the installed services.
 
 You have successfully deployed the services to Azure. Congratulations for completing your first challenge.
 
-## Challenge-2: Load data in Azure Storage Account
+## Challenge-2: Load sample multitenant data in Azure Storage Account
 
-2.1 Download the sample test data from the repo data folder to your laptop folder
+2.1 Download the Smart Booking Company Multitenant data from the repo data folder to your laptop folder
 <img src="./images/MulittenantCosmosDB_Storage_SampleDataSource.jpg" alt="Source Sample Data location" Width="600">
+
+* Hotel Reservation Data: 
 
 2.2 Select the Storage Account Service from the Resource group Overview screen (above screen)
 <img src="./images/MulittenantCosmosDB_storage_container_selection.jpg" alt="select hotel storage container" Width="600">
@@ -82,8 +103,23 @@ You have successfully loaded the sample booking data into a storage account.
 Congratulation, You have completed the second challenge and now you know how to store data in Azure Storage accounts!!
 
 
-## Challenge-3: Design Cosmos DB Account to serve small, medium and large customers
+## Challenge-3: Design Cosmos DB Accounts to serve small, medium and large customers
 
+### Small size customers - 
+Create a Shared container with partition key per tenant
+
+### Partitioning Strategy for many mid size customers
+Group customer data into each container based on the line of business
+
+Create container per each tenant 
+
+### Partitioning Strategy for large customers
+Create dedicated container per each tenant and restrict through put for a noisy neighbor 
+
+Create one database account for customer
+
+
+### Tenant Data larger than 20 GB: 
 
 ## Challenge-4: Build ADF Pipelines to load data into Cosmos DB
 
@@ -118,11 +154,7 @@ and access options such as "Cosmos DB Access Key" or ""Azure Key Vault".
 
 4.6 Follow the same way to test the connectivity to the storage account.
 
-## Challenge-3: Validate Partitioning Strategies
-1. Partitioning Strategy for many Small size customers
-2. Partitioning Strategy for many mid size customers
-3. Partitioning Strategy for large customers
-4. Partitioning Additional options
+
 
 ## Challeng-4: Build ADF pipelines to load data into Cosmos DB
 
