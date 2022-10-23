@@ -4,28 +4,39 @@
 
 ## Cosmos DB Introduction
 
-Azure Cosmos DB is a fully managed NoSQL database for modern app development. You can build applications fast with open source APIs, multiple SDKs, schemaless data and no-ETL analytics over operational data.
+Azure Cosmos DB is a fully managed NoSQL database for modern multitenant application development. You can build applications fast with open source APIs, multiple SDKs, schemaless data and no-ETL analytics over operational data.
 Single-digit millisecond response times, and instant scalability, guarantee speed at any scale.
 Guarantee business continuity, 99.999% availability and enterprise-grade security for every application.
 End-to-end database management, with serverless and automatic scaling matching your application and TCO needs.
+
 Supports multiple database APIs including native API for NoSQL, API for Mongo DB, Apache Cassandra, Apache Gremlin and Table.
+
 By using partitions with Azure Cosmos DB containers, you can create containers that are shared across multiple tenants. 
 With large containers, Azure Cosmos DB spreads your tenants across multiple physical nodes to acheive a high degree of scale.
 
 
 ## Business Scenario
-ISV company called Smart Booking Inc has built an on-line reservation application called "EasyReserveApp" and deployed to Car Rental and Hotel business industries. 
+Fictitious ISV company called ""Smart Booking Inc"" has built an on-line reservation application called "EasyReserveApp" and deployed to Car Rental and Hotel business industries. 
 
 It currently has the following clients:
+
 Car Rental Industry:
+
 	1) Value Rentals with offices in Denver, Grand Canyon & Rapid City. 
+
 	2) Luxury Rentals with offices in Miami Beach & Daytona Beach.
+
 	3) Spendless Rentals with offices in New York, San Francisco, Orlando. 
+
 Hotel Industry:
+
 	1) GoodFellas Hotels with offices in Atlanta, New York, San Francisco, Orlando, Los Angeles.
+
 	2) Hiking Hotels in Denver, Grand Canyon & Rapid City.
+
 	3) Casino Hotels in Los Vegas & Reno.
-FamilyFun Hotels with offices in Disney World & Disney Land.
+
+	4) FamilyFun Hotels with offices in Disney World & Disney Land.
 
 Let us see how Azure Cosmos DB can be designed to support these small, medium and large customers.  
 
@@ -74,10 +85,10 @@ You have successfully deployed the services to Azure. Congratulations for comple
 
 ## Challenge-2: Load sample multitenant data in Azure Storage Account
 
-2.1 Download the Smart Booking Company Multitenant data from the repo data folder to your laptop folder
+2.1 Download the EasyReserveApp Multitenant data from the repo data folder to your laptop folder
 <img src="./images/MulittenantCosmosDB_Storage_SampleDataSource.jpg" alt="Source Sample Data location" Width="600">
 
-* Hotel Reservation Data: 
+### Load Hotel Reservation Data: 
 
 2.2 Select the Storage Account Service from the Resource group Overview screen (above screen)
 <img src="./images/MulittenantCosmosDB_storage_container_selection.jpg" alt="select hotel storage container" Width="600">
@@ -95,6 +106,8 @@ Click-3: Browse through your laptop and select the downloaded 'multi_tenent_hote
 You would see csv file in the container after successful upload operation.
 <img src="./images/MulittenantCosmosDB_storage_hotel_data_loaded.jpg" alt="Uploaded hotel data file" Width="600">
 
+### Load Rental Car Reservation Data:
+
 2.4 Select Containers bread crumb and then select 'rentdata' container from the list to upload the sample data.
 Repeat the above steps and upload data from 'mult_tenent_car_reservations.csv' file.
 
@@ -104,6 +117,15 @@ Congratulation, You have completed the second challenge and now you know how to 
 
 
 ## Challenge-3: Design Cosmos DB Accounts to serve small, medium and large customers
+
+Review the reservation data for Car and Hotel industries. 
+<img src="../images/MulittenantCosmosDB_DataModel_Architecture.jpg" alt="Application Data Model Architecture", Width="600">
+
+**TenantId**: Application has assigned a unique 'tenantId'' for each business entity.
+
+**TenantBizId**: Application has assigned a unique 'tenantBizId' for each of the serving offices with each business entity.
+
+**LocationId**: Application has assigned a unique "LocationId" for each address associated with an operating unit of all businesses. 
 
 ### Small size customers - 
 Create a Shared container with partition key per tenant
