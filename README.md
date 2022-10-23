@@ -111,7 +111,7 @@ Congratulation, You have completed the second challenge and now you know how to 
 ## Challenge-3: Design Cosmos DB Accounts to serve small, medium and large customers
 
 Review the reservation data for Car and Hotel industries. 
-<img src="./images/MulittenantCosmosDB_DataModel_Architecture.jpg" alt="Application Data Model Architecture", Width="600">
+<img src="./images/MulittenantCosmosDB_DataModel_Architecture.jpg" alt="Application Data Model Architecture" Width="600">
 
 **TenantId**: Application has assigned a unique 'tenantId'' for each business entity.
 **TenantBizId**: Application has assigned a unique 'tenantBizId' for each of the serving offices with each business entity.
