@@ -132,8 +132,11 @@ We can create a container with 'TenantId' as the parition key to separate each c
 
 3.1 Review the container definition with 'TenantId' as the partition key.
 	Click-1: Access Cosmos DB account from the resource group.  
+
 	Click-2: Select Data Explorer from the left pane.
+
 	Click-3: expand 'strategy_AllTenats' container from 'bookingsdb' database
+
 	Click-4: select 'Settings'
 
 You will see the 'TenantId' as the partition key.
@@ -149,6 +152,7 @@ You can create separate containers for rental and car industries with 'TenantId'
 
 3.2 Review 'strategy_by_BusinessLine' container definition designed to load one business line data.
 	Click-1: Expand 'strategy_by_BusinessLine' container
+
 	Click-2: select 'Settings'
 
 <img src="./images/MulittenantCosmosDB_DB_TenantsByBusinessLine_Container.jpg" alt="container by business config" Width="600">
@@ -159,6 +163,7 @@ You will have to make sure the data volume of each business location should not 
 
 3.3 Review the configuration set in the 'Strategy_by_BusinessTenant'container to partition the data by locationId.
 	Click-1: Expand 'Strategy_by_BusinessTenant' container definition
+
 	Click-2: select 'Settings'
 
 <img src="./images/MulittenantCosmosDB_DB_By_TenantBiz_Container.jpg" alt="container by business locations" Width="600">
@@ -167,10 +172,14 @@ You will have to make sure the data volume of each business location should not 
 ### Partitioning Strategy to combine multiple parameters as a synthetic key: 
 It is not easy to find a property with unique values to partition data. You can create composite value by combining properties.
 Azure Cosmos DB support synthetic key as a partition key.
+
 3.4 Review the container configuration with Synthetic partition key.
 	Click-1: Expand 'Strategy_by_SyntheticKey' container
+
 	Click-2: select 'Settings'
+
 Validate the Synthetic partition key.
+
 <img src="./images/MulittenantCosmosDB_DB_SyntheticCombo_Container.jpg" alt="Synthetic partition key container" Width="600">
 
 ## Challenge-4: Build ADF Pipelines to load data into Cosmos DB
