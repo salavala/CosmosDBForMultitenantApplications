@@ -22,15 +22,20 @@ It currently has the following clients:
 
 Car Rental Industry:
 
-**Value Rentals** with offices in Denver, Grand Canyon & Rapid City. 
+**Value Rentals** with offices in Denver, Grand Canyon & Rapid City.
+
 **Luxury Rentals** with offices in Miami Beach & Daytona Beach.
+
 **Spendless** Rentals with offices in New York, San Francisco, Orlando. 
 
 Hotel Industry:
 
 **GoodFellas** Hotels with offices in Atlanta, New York, San Francisco, Orlando, Los Angeles.
+
 **Hiking Hotels** in Denver, Grand Canyon & Rapid City.
+
 **Casino Hotels** in Los Vegas & Reno.
+
 **FamilyFun Hotels** with offices in Disney World & Disney Land.
 
 Let us see how Azure Cosmos DB can be designed to support these small, medium and large customers.  
