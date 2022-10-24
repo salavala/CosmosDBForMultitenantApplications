@@ -14,6 +14,7 @@ Supports multiple database APIs including native API for NoSQL, API for Mongo DB
 By using partitions with Azure Cosmos DB containers, you can create containers that are shared across multiple tenants. 
 With large containers, Azure Cosmos DB spreads your tenants across multiple physical nodes to acheive a high degree of scale.
 
+Access [Azure Cosmos DB Documentation](https://learn.microsoft.com/en-us/azure/cosmos-db/introduction) for more details and samples. 
 
 ## Business Scenario
 Fictitious ISV company called ""Smart Booking Inc"" has built an on-line reservation application called "EasyReserveApp" and deployed to Car Rental and Hotel business industries. 
@@ -44,8 +45,9 @@ Let us see how Azure Cosmos DB can be designed to support these small, medium an
 <img src="./images/cosmos-lab-architecture.jpg" alt="Architecture for Azure Cosmos DB Lab" Width="600"> 
 
 ## Descprtion of the other services:
-1. Azure Storage Service (Azure Data Lake Service Gen2)
-2. Azure Data Factory (ADF)
+1. [Azure Data Lake Storage Service](https://learn.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction)
+
+2. [Azure Data Factory](https://learn.microsoft.com/en-us/azure/data-factory/introduction)
 
 
 ## Challenge-1: Deploy Azure Services  
