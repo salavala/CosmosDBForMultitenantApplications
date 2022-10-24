@@ -151,6 +151,7 @@ For example reporting may demand to query data based on the room type for hotel 
 You can create separate containers for rental and car industries with 'TenantId' as the partition key. 
 
 3.2 Review 'strategy_by_BusinessLine' container definition designed to load one business line data.
+	
 	Click-1: Expand 'strategy_by_BusinessLine' container
 
 	Click-2: select 'Settings'
@@ -162,6 +163,7 @@ You can partition data based an an unique attribute such as business locationId 
 You will have to make sure the data volume of each business location should not exceed 20GB limit of the logical partition size.
 
 3.3 Review the configuration set in the 'Strategy_by_BusinessTenant'container to partition the data by locationId.
+	
 	Click-1: Expand 'Strategy_by_BusinessTenant' container definition
 
 	Click-2: select 'Settings'
@@ -174,6 +176,7 @@ It is not easy to find a property with unique values to partition data. You can 
 Azure Cosmos DB support synthetic key as a partition key.
 
 3.4 Review the container configuration with Synthetic partition key.
+	
 	Click-1: Expand 'Strategy_by_SyntheticKey' container
 
 	Click-2: select 'Settings'
@@ -184,40 +187,102 @@ Validate the Synthetic partition key.
 
 ## Challenge-4: Build ADF Pipelines to load data into Cosmos DB
 
-4.1 Select Azure Data Factory service from the above picture.
+### Validate the connectivity to Azure Storage and Azure Cosmos DB Database. 
 
-It will show you the overview page of the ADF Service.
+4.1 Validate connectivity to Azure Cosmos DB database	
+Click-1: Select Azure Data Factory service from the above picture. It will show you the overview page of the ADF Service.
 
-4.2 Click on the "Launch Studio" button to launch the designer studio for building the pipelines.
+Click-2: Select "Launch Studio" button to launch the designer studio for building the pipelines.
 
 <img src="./images/MulittenantCosmosDB_LaunchADFStudio.jpg" alt="Launch ADF Studio" Width="600">
 
 It will open up "Azure DataFactory Studio"" in a new window tab. 
 
-4.3 Select "Admin" box as shown in the picture to validate the Data Source Connection(Linked) services
+Click-3: Select "Admin" box as shown in the picture to validate the Data Source Connection(Linked) services
 
 <img src="./images/MulittenantCosmosDB_ADFLandingPage.jpg" alt="ADF Studio Landing Page" Width="600">
 
 It will take you to the admin page. Select the "linked services"" if it is not selected already. 
 
-It will list the data source linked services to Cosmos DB and Storage account.
+Click-4: It will list the data source linked services to Cosmos DB and Storage account.
 
 <img src="./images/MulittenantCosmosDB_ADF_Verify_linked_Services.jpg" alt="list ADF Linked Services" Width="600">
 
-4.4 Select Cosmos DB linked Service to test the connectivity.
+Click-5: Select Cosmos DB linked Service to test the connectivity.
 
 It will show the edit screen with the connection configuration. You can explore the options to authenticate 
 such as "Account Key", "Service Principal", "System Assigned Managed Identity", "User Assigned Managed Identity" 
 and access options such as "Cosmos DB Access Key" or ""Azure Key Vault".
 <img src="./images/" alt="Test Cosmos DB connectivity" Width="600">
 
-4.5 Click on "Test connection" to verify the connectivity.
+Click-6: Click on "Test connection" to verify the connectivity.
 
-4.6 Follow the same way to test the connectivity to the storage account.
+### Validate the connectivity to Azure Storage Account.
+4.2 Repeat the above steps from click-4 to test the connectivity to the storage account.
+
+### Dataset for loading the Storage Data to Cosmos DB
+
+Deployment script has created 4 Cosmos DB datasets to load data into the containers you have defined in Challenge-3.
+It also created 2 Storage Account datasets for Hotel and Rental car data you have uploaded to the storage account. 
 
 
+4.3 Review the dataset definitions.
 
-## Challeng-4: Build ADF pipelines to load data into Cosmos DB
+Click-1: Select Author (Pencil icon) from the left pane.
+Click-2: Expand Datasets under "Factory Resources".
+You should see 6 data sources.
+
+4.4 Add the file names to the storage datasets.
+
+Click-1: Select ADLS_HotelData dataset.
+
+Click-2: Select 'File path' under 'Connect' tab.
+
+Click-3: Select 'Browse' icon to browse Azure Storage Account folders.
+
+Click-4: Select 'hoteldata' folder
+
+Click-5: Select 'multi_tenent_hotel_reservations.csv' file from the folder. 
+
+Click-6: Check 'First row as header' box to indicated that the first line in the data as the header columns.
+
+Click-7: Complete the 'Publish all' process to save the changes. It is very important to perform this step after each 
+modification or addition otherwise you won't retain your changes. 
+
+Repeat the above steps to add the file name 'multi_tenent_car_reservations.csv' to the Car Rental dataset.
+
+### Create Data Factory Pipelines to load data into Cosmos DB	
+
+You are ready to build the pipeline to load the data into Cosmos DB Containers.
+
+4.5 Create a pipeline to load Hotel Data to All Tenants Container.
+
+Click-1: Select 'Pipelines' under 'Factory Resources' from the left pane.
+
+Click-2: Select three dots indicting the pipeline actions and select 'New Pipeline'.
+
+Click-3: Type a name to the pipeline in the right 'Properties' pane.
+
+Click-4: Close the 'Properties' pane by selecting page with start icon on the top of the pane.
+
+Click-5: Expand 'Move & transform' section under 'Activities' pane in the right next to 'Factory Resources'.
+
+Click-6: Drag 'Copy Data' box to the right empty box.
+
+Click-7: Type 'Load Hotel Data' as a name to this activity.
+
+
+Click-8: Select Source tab and select 'ADLS_HotelData' from the dropdown 'Source dataset' parameter. 
+You can see various options to improve the performance to read the data.
+
+Click-9: Select Sink Tab and select 'DS_Strategy_AllTenants' from the dropdown 'Sink dataset' parameter.
+Review all the options to improve the performance to write the data.
+
+Click-10: Review 'Settings' to view data factory execute options. 
+
+Click-11: Select 'Publish all' icon with an yellow circle showing the number of changes and publish the changes.
+
+
 
 ## Challeng-5: Validate the partitioning strategies
 
