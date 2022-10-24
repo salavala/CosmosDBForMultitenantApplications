@@ -14,7 +14,7 @@ Supports multiple database APIs including native API for NoSQL, API for Mongo DB
 By using partitions with Azure Cosmos DB containers, you can create containers that are shared across multiple tenants. 
 With large containers, Azure Cosmos DB spreads your tenants across multiple physical nodes to acheive a high degree of scale.
 
-Access [Azure Cosmos DB Documentation](https://learn.microsoft.com/en-us/azure/cosmos-db/introduction) for more details and samples. 
+Access [Azure Cosmos DB Documentation](https://learn.microsoft.com/en-us/azure/cosmos-db/introduction) for more details and training. 
 
 ## Business Scenario
 Fictitious ISV company called ""Smart Booking Inc"" has built an on-line reservation application called "EasyReserveApp" and deployed to Car Rental and Hotel business industries. 
@@ -44,13 +44,15 @@ Let us see how Azure Cosmos DB can be designed to support these small, medium an
 ## Architecture Solution Diagram
 <img src="./images/cosmos-lab-architecture.jpg" alt="Architecture for Azure Cosmos DB Lab" Width="600"> 
 
-## Descprtion of the other services:
+## Descprtion of other services:
 1. [Azure Data Lake Storage Service](https://learn.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction)
 
 2. [Azure Data Factory](https://learn.microsoft.com/en-us/azure/data-factory/introduction)
 
 
 ## Challenge-1: Deploy Azure Services  
+
+We have developed an Azure Deployment script to provision the required Azure Services used in the above architecture diagram.
 
 1.1 Click the "Deploy to Azure" button
 
@@ -83,11 +85,14 @@ It will take you to your resource group showing the installed services.
 
 <img src="./images/MulittenantCosmosDB_ResourceGroup.jpg" alt="Resource Group with Services list" Width="600">
 
-You have successfully deployed the services to Azure. Congratulations for completing your first challenge.
+You have successfully deployed the required services to Azure. Congratulations for completing your first challenge.
 
 ## Challenge-2: Load sample multitenant data in Azure Storage Account
+We have created an anonymous fictitious data to showcase the multitenant data model with this lab. Extract this data
+to your environment from the github link.
 
-2.1 Download the EasyReserveApp Multitenant data from the repo data folder to your laptop folder
+2.1 Download the EasyReserveApp Multitenant data from the repo 'data'' folder to your laptop folder.
+
 <img src="./images/MulittenantCosmosDB_Storage_SampleDataSource.jpg" alt="Source Sample Data location" Width="600">
 
 ### Load Hotel Reservation Data: 
