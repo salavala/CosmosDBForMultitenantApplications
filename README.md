@@ -239,6 +239,8 @@ Click-1: Select Author (Pencil icon) from the left pane.
 Click-2: Expand Datasets under "Factory Resources".
 You should see 6 data sources.
 
+<img src="./images/MulittenantCosmosDB_ADF_Validate_DataSets.jpg" alt="List Datasets" Width="200"
+
 4.4 Add the file names to the storage datasets.
 
 Click-1: Select ADLS_HotelData dataset.
@@ -256,6 +258,8 @@ Click-6: Check 'First row as header' box to indicated that the first line in the
 Click-7: Complete the 'Publish all' process to save the changes. It is very important to perform this step after each 
 modification or addition otherwise you won't retain your changes. 
 
+<img src="./images/MulittenantCosmosDB_ADF_Add_DataSet_FileName.jpg" alt="add the hotel source data file" Width="600">
+
 Repeat the above steps to add the file name 'multi_tenent_car_reservations.csv' to the Car Rental dataset.
 
 ### Create Data Factory Pipelines to load data into Cosmos DB	
@@ -272,23 +276,31 @@ Click-3: Type a name to the pipeline in the right 'Properties' pane.
 
 Click-4: Close the 'Properties' pane by selecting page with start icon on the top of the pane.
 
+<img src="./images/MulittenantCosmosDB_ADF_Pipeline_Create.jpg" alt="Create ADF Pipeline" Width="600">
+
 Click-5: Expand 'Move & transform' section under 'Activities' pane in the right next to 'Factory Resources'.
 
 Click-6: Drag 'Copy Data' box to the right empty box.
 
 Click-7: Type 'Load Hotel Data' as a name to this activity.
 
+<img src="./images/MulittenantCosmosDB_ADF_Pipeline_Create_Copy_Activity.jpg" alt="Create ADF Copy Activity in a Pipeline" Width="600">
 
 Click-8: Select Source tab and select 'ADLS_HotelData' from the dropdown 'Source dataset' parameter. 
 You can see various options to improve the performance to read the data.
 
+<img src="./images/MulittenantCosmosDB_ADF_Pipeline_Source.jpg" alt="Set Source Dataset" Width="600">
+
 Click-9: Select Sink Tab and select 'DS_Strategy_AllTenants' from the dropdown 'Sink dataset' parameter.
 Review all the options to improve the performance to write the data.
+
+<img src="./images/MulittenantCosmosDB_ADF_Pipeline_Sink.jpg" alt="Set Sink Dataset" Width="600">
 
 Click-10: Review 'Settings' to view data factory execute options. 
 
 Click-11: Select 'Publish all' icon with an yellow circle showing the number of changes and publish the changes.
 
+<img src="./images/MulittenantCosmosDB_ADF_Pipeline_Execution_Settings.jpg" alt="ADF Pipeline Execution Settings" Width="600">
 
 
 ## Challeng-5: Validate the partitioning strategies
