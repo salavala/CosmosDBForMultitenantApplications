@@ -12,7 +12,7 @@ End-to-end database management, with serverless and automatic scaling matching y
 Supports multiple database APIs including native API for NoSQL, API for Mongo DB, Apache Cassandra, Apache Gremlin and Table.
 
 By using partitions with Azure Cosmos DB containers, you can create containers that are shared across multiple tenants. 
-With large containers, Azure Cosmos DB spreads your tenants across multiple physical nodes to acheive a high degree of scale.
+With large containers, Azure Cosmos DB spreads your tenants across multiple physical nodes to achieve a high degree of scale.
 
 Access [Azure Cosmos DB Documentation](https://learn.microsoft.com/en-us/azure/cosmos-db/introduction) for more details and training. 
 
@@ -51,11 +51,24 @@ Let us see how Azure Cosmos DB can be designed to support these small, medium an
 ## Architecture Solution Diagram
 <img src="./images/cosmos-lab-architecture.jpg" alt="Architecture for Azure Cosmos DB Lab" Width="600"> 
 
-## Descprtion of other services:
-1. [Azure Data Lake Storage Service](https://learn.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction)
+## Description of other services:
+1. Azure Data Lake Storage Service Gen2
 
-2. [Azure Data Factory](https://learn.microsoft.com/en-us/azure/data-factory/introduction)
+Azure Blob storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive 
+amounts of unstructured data. Data Lake Storage Gen2 makes Azure Blob Storage the foundation for building enterprise data lakes 
+on Azure. Designed from the start to service multiple petabytes of information while sustaining hundreds of gigabits of 
+throughput, Data Lake Storage Gen2 allows you to easily manage massive amounts of data.
 
+Access [Azure Data Lake Storage Service](https://learn.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction) for 
+more details and training.
+
+2. Azure Data Factory (ADF)
+
+Big data requires a service that can orchestrate and operationalize processes to refine these enormous stores of raw data 
+into actionable business insights. Azure Data Factory is a managed cloud service that's built for these complex hybrid 
+extract-transform-load (ETL), extract-load-transform (ELT), and data integration projects.
+
+Access [Azure Data Factory](https://learn.microsoft.com/en-us/azure/data-factory/introduction) for more details and training. 
 
 ## Challenge-1: Deploy Azure Services  
 
