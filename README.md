@@ -51,7 +51,7 @@ Let us see how Azure Cosmos DB can be designed to support these small, medium an
 
 ## Workshop Challenge List
 - [Challenge-1: Deploy Azure Storage, Azure Cosmos DB & Azure Data Factory Services to Azure Subscription](#challenge-1-Deploy-Azure-Services)
-- [Challenge-1:Load sample multitenant data in Azure Storage Account](#Load sample multitenant data in Azure Storage Account)
+- [Challenge-2:Load sample multitenant data in Azure Storage Account](#Challenge-2-Load-sample-multitenant-data-to-Azure-Storage-Account)
 
 ## Challenge-1: Deploy Azure Services  
 
@@ -90,7 +90,7 @@ It will take you to your resource group showing the installed services.
 
 You have successfully deployed the required services to Azure. Congratulations for completing your first challenge.
 
-## Challenge-2: Load sample multitenant data in Azure Storage Account
+## Challenge-2: Load sample multitenant data to Azure Storage Account
 We have created an anonymous fictitious data to showcase the multitenant data model with this lab. Extract this data
 to your environment from the github link.
 
