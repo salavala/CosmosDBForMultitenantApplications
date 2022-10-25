@@ -49,6 +49,9 @@ Let us see how Azure Cosmos DB can be designed to support these small, medium an
 
 2. [Azure Data Factory](https://learn.microsoft.com/en-us/azure/data-factory/introduction)
 
+## Workshop Challenge List
+- [Challenge-1: Deploy Azure Storage, Azure Cosmos DB & Azure Data Factory Services to Azure Subscription](#challenge-1-Deploy-Azure-Services)
+- [Challenge-1:Load sample multitenant data in Azure Storage Account](#Load sample multitenant data in Azure Storage Account)
 
 ## Challenge-1: Deploy Azure Services  
 
