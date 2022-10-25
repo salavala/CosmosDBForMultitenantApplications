@@ -272,7 +272,7 @@ Click-1: Select 'Pipelines' under 'Factory Resources' from the left pane.
 
 Click-2: Select three dots indicting the pipeline actions and select 'New Pipeline'.
 
-Click-3: Type a name to the pipeline in the right 'Properties' pane.
+Click-3: Type a name to the pipeline in the right 'Properties' pane. For example: LoadHotelDataToAllTenantsContainer. 
 
 Click-4: Close the 'Properties' pane by selecting page with start icon on the top of the pane.
 
@@ -302,6 +302,38 @@ Click-11: Select 'Publish all' icon with an yellow circle showing the number of 
 
 <img src="./images/MulittenantCosmosDB_ADF_Pipeline_Execution_Settings.jpg" alt="ADF Pipeline Execution Settings" Width="600">
 
+### 4.6 Create a pipeline to load Rental Car data into All Tenenats Container.
+
+Data Factory Studio has a feature to clone a pipeline. 
+
+Click-1: Hover over 'LoadHotelDataToAllTenantsContainer' pipeline and select actions to a list. 
+
+Click-2: Select 'Clone' option. Rename LoadHotelDataToAllTenantsContainer_copy1 to LoadRentalCarDataToAllTenantsContainer.
+
+Click-3: Close the properties box by selecting Page icon at the top right.
+
+Click-4: Select 'Source' tab and select 'ADLS_RentalData'
+
+Click-5: Select 'Sink' tab and select 'DS_Strategy_AllTenants' from the dropdown.
+
+Click-6: Select 'Publish all' to save the new pipeline.
+
+<img src="./images/MulittenantCosmosDB_ADF_Pipeline_Clone.jpg" alt="Clone pipeline" Width="600">
+
+
+### 4.7 Create a pipeline to load Rental Car Data into data By Business Line Container.
+
+Repeat the above step with 'ADLS_RentalData' as the source dataset and  'DS_strategy_by_BusinessLine' as the sink dataset.
+
+### 4.8 Create a pipeline to load Rental Car Data into data By Tenant Business Container.
+
+Repeat the above step with 'ADLS_RentalData' as the source dataset and  'DS_strategy_by_BusinessTenant' as the sink dataset.
+
+### 4.9 Create a pipeline to load Rental Car Data into data By Synthetic Key Container.
+
+Repeat the above step with 'ADLS_RentalData' as the source dataset and  'DS_strategy_by_SyntheticKey' as the sink dataset.
+
+Congratullations! You have successfully completed Challenge-4!!
 
 ## Challeng-5: Validate the partitioning strategies
 
