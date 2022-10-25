@@ -16,6 +16,13 @@ With large containers, Azure Cosmos DB spreads your tenants across multiple phys
 
 Access [Azure Cosmos DB Documentation](https://learn.microsoft.com/en-us/azure/cosmos-db/introduction) for more details and training. 
 
+## Workshop Challenge List
+- [Challenge-1: Deploy Azure Storage, Azure Cosmos DB & Azure Data Factory Services to Azure Subscription](#challenge-1-Deploy-Azure-Services)
+- [Challenge-2:Load sample multitenant data to Azure Storage Account](#Challenge-2-Load-sample-multitenant-data-to-Azure-Storage-Account)
+- [Challenge-3: Design Cosmos DB Account to serve small, medium and large customers](#Challenge-3-Design-Cosmos-DB-Account-to-serve-small,-medium-and-large-customers)
+- [Challenge-4: Build ADF Pipelines to load data into Cosmos DB](#Challenge-4-Build-ADF-Pipelines-to-load-data-into-Cosmos-DB)
+- [Challenge-5: Validate Cosmos DB features such as auto failover for high availability, auto scale for scalability and low latency response](#Challeng-5-Validate-the-partitioning-strategies)
+
 ## Business Scenario
 Fictitious ISV company called ""Smart Booking Inc"" has built an on-line reservation application called "EasyReserveApp" and deployed to Car Rental and Hotel business industries. 
 
@@ -49,9 +56,6 @@ Let us see how Azure Cosmos DB can be designed to support these small, medium an
 
 2. [Azure Data Factory](https://learn.microsoft.com/en-us/azure/data-factory/introduction)
 
-## Workshop Challenge List
-- [Challenge-1: Deploy Azure Storage, Azure Cosmos DB & Azure Data Factory Services to Azure Subscription](#challenge-1-Deploy-Azure-Services)
-- [Challenge-2:Load sample multitenant data in Azure Storage Account](#Challenge-2-Load-sample-multitenant-data-to-Azure-Storage-Account)
 
 ## Challenge-1: Deploy Azure Services  
 
@@ -123,7 +127,7 @@ You have successfully loaded the sample booking data into a storage account.
 Congratulation, You have completed the second challenge and now you know how to store data in Azure Storage accounts!!
 
 
-## Challenge-3: Design Cosmos DB Accounts to serve small, medium and large customers
+## Challenge-3: Design Cosmos DB Account to serve small, medium and large customers
 
 Review the reservation data for Car and Hotel industries:
 
@@ -196,6 +200,8 @@ Validate the Synthetic partition key.
 <img src="./images/MulittenantCosmosDB_DB_SyntheticCombo_Container.jpg" alt="Synthetic partition key container" Width="600">
 
 ## Challenge-4: Build ADF Pipelines to load data into Cosmos DB
+Azure Data Factory has many features to fulfil the needs ETL requirement in the cloud. 
+You would be experincing just one of many features. 
 
 ### Validate the connectivity to Azure Storage and Azure Cosmos DB Database. 
 
