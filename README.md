@@ -336,6 +336,7 @@ Repeat the above step with 'ADLS_RentalData' as the source dataset and  'DS_stra
 Congratullations! You have successfully completed Challenge-4!!
 
 ## Challeng-5: Validate the partitioning strategies
+Access Cosmos DB Service. 
 
 
 
