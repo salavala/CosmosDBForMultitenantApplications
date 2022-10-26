@@ -21,8 +21,7 @@ Access [Azure Cosmos DB Documentation](https://learn.microsoft.com/en-us/azure/c
 - [Challenge-2:Load sample multitenant data to Azure Storage Account](#Challenge-2-Load-sample-multitenant-data-to-Azure-Storage-Account)
 - [Challenge-3: Design Cosmos DB Account to serve small, medium and large customers](#Challenge-3-Design-Cosmos-DB-Account-to-serve-small,-medium-and-large-customers)
 - [Challenge-4: Build ADF Pipelines to load data into Cosmos DB](#Challenge-4-Build-ADF-Pipelines-to-load-data-into-Cosmos-DB)
-- [Challenge-5: Validate Cosmos DB features auto failover for high availability, autoscale for scalability and low latency response]
-(#Challenge-5:-Validate-Cosmos-DB-features-auto-failover-autoscale-and-low-latency)
+- [Challenge-5: Validate Cosmos DB features auto failover for high availability, autoscale for scalability and low latency response](#Challenge-5-Validate-Cosmos-DB-features-auto-failover-autoscale-and-low-latency)
     
 ## Business Scenario
 Fictitious ISV company called ""Smart Booking Inc"" has built an on-line reservation application called "EasyReserveApp" and deployed to Car Rental and Hotel business industries. 
