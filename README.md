@@ -21,7 +21,7 @@ Access [Azure Cosmos DB Documentation](https://learn.microsoft.com/en-us/azure/c
 - [Challenge-2:Load sample multitenant data to Azure Storage Account](#Challenge-2-Load-sample-multitenant-data-to-Azure-Storage-Account)
 - [Challenge-3: Design Cosmos DB Account to serve small, medium and large customers](#Challenge-3-Design-Cosmos-DB-Account-to-serve-small,-medium-and-large-customers)
 - [Challenge-4: Build ADF Pipelines to load data into Cosmos DB](#Challenge-4-Build-ADF-Pipelines-to-load-data-into-Cosmos-DB)
-- [Challenge-5: Validate Cosmos DB features such as auto failover for high availability, auto scale for scalability and low latency response](#Challeng-5-Validate-the-partitioning-strategies)
+- [Challenge-5: Validate Cosmos DB features auto failover for high availability, auto scale for scalability and low latency response](#Challeng-5-Validate-Cosmos-DB-features-auto-failover-for-high-availability,-auto-scale-for-scalability-and-low-latency-response)
 
 ## Business Scenario
 Fictitious ISV company called ""Smart Booking Inc"" has built an on-line reservation application called "EasyReserveApp" and deployed to Car Rental and Hotel business industries. 
@@ -52,23 +52,23 @@ Let us see how Azure Cosmos DB can be designed to support these small, medium an
 <img src="./images/cosmos-lab-architecture.jpg" alt="Architecture for Azure Cosmos DB Lab" Width="600"> 
 
 ## Description of other services:
-1. Azure Data Lake Storage Service Gen2
+### 1. Azure Data Lake Storage Service Gen2
 
 Azure Blob storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive 
 amounts of unstructured data. Data Lake Storage Gen2 makes Azure Blob Storage the foundation for building enterprise data lakes 
 on Azure. Designed from the start to service multiple petabytes of information while sustaining hundreds of gigabits of 
 throughput, Data Lake Storage Gen2 allows you to easily manage massive amounts of data.
 
-Access [Azure Data Lake Storage Service](https://learn.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction) for 
-more details and training.
+Access [Azure Data Lake Storage Service](https://learn.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction) 
+documentation for more details and training.
 
-2. Azure Data Factory (ADF)
+### 2. Azure Data Factory (ADF)
 
 Big data requires a service that can orchestrate and operationalize processes to refine these enormous stores of raw data 
 into actionable business insights. Azure Data Factory is a managed cloud service that's built for these complex hybrid 
 extract-transform-load (ETL), extract-load-transform (ELT), and data integration projects.
 
-Access [Azure Data Factory](https://learn.microsoft.com/en-us/azure/data-factory/introduction) for more details and training. 
+Access [Azure Data Factory](https://learn.microsoft.com/en-us/azure/data-factory/introduction) documentation for more details and training. 
 
 ## Challenge-1: Deploy Azure Services  
 
@@ -357,8 +357,49 @@ Repeat the above step with 'ADLS_RentalData' as the source dataset and  'DS_stra
 
 Congratullations! You have successfully completed Challenge-4!!
 
-## Challeng-5: Validate the partitioning strategies
-Access Cosmos DB Service. 
+## Challeng-5: Validate Cosmos DB features auto failover for high availability, auto scale for scalability and low latency response
+
+### High Availability Features:
+
+Replica Outages: Azure Cosmos DB automatically mitigates replica outages by guaranteeing at least three replicas of your data in 
+each Azure region for your account within a four replica quorum.
+
+#### Zone Redundancy: In many Azure regions, it is possible to distribute your Azure Cosmos DB cluster across 
+availability zones, which results increased SLAs, as availability zones are physically separate and provide 
+distinct power source, network, and cooling. See Availability Zones. When an Azure Cosmos DB account is 
+deployed using availability zones, Azure Cosmos DB provides RTO = 0 and RPO = 0 even in a zone outage.
+
+5.1 Select 'Replicate data globally' under 'Settings' section in the left pane. It show all the available regions 
+for Cosmos DB deployment. Availability Zone option for the write region can be enabled at the time of account provisioning.
+select '+ Add region' to add a read region. Check the box for 'Availability Zone'.
+
+#### Service-Managed failover: It allows Azure Cosmos DB to fail over the write region of multi-region account. Region 
+failovers are detected and handled by Azure and don't require any changes from the application.
+
+5.2: Select "Service-Managed Failover" option to failover the database to read region at the time region outage.
+
+Select the "On" button under "Enable Service-Managed Failover".
+
+It will take sometime to enable the failover option.
+
+Autoscale: It allows you to scale the throughput (RU/s) of your database or container automatically and instantly. 
+The throughput is scaled based on the usage, without impacting the availability, latency, throughput, or 
+performance of the workload.
+
+Autoscale provisioned throughput is well suited for mission-critical workloads that have variable or unpredictable 
+traffic patterns, and require SLAs on high performance and scale.
+
+5.3 Select 'Data Explorer' from the left pane and expand 'bookingsdb' database. 
+
+Select 'Scale' setting.
+
+Change Max RU/s to '2000'' and select save button.
+
+It will change the throughput instantly without impacting the current workloads.
+
+Fast Response Time:
+
+
 
 
 
