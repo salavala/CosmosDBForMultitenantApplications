@@ -365,7 +365,7 @@ Congratullations! You have successfully completed Challenge-4!!
 Replica Outages: Azure Cosmos DB automatically mitigates replica outages by guaranteeing at least three replicas of your data in 
 each Azure region for your account within a four replica quorum.
 
-#### Zone Redundancy: In many Azure regions, it is possible to distribute your Azure Cosmos DB cluster across 
+### Zone Redundancy: In many Azure regions, it is possible to distribute your Azure Cosmos DB cluster across 
 availability zones, which results increased SLAs, as availability zones are physically separate and provide 
 distinct power source, network, and cooling. See Availability Zones. When an Azure Cosmos DB account is 
 deployed using availability zones, Azure Cosmos DB provides RTO = 0 and RPO = 0 even in a zone outage.
@@ -374,7 +374,7 @@ deployed using availability zones, Azure Cosmos DB provides RTO = 0 and RPO = 0 
 for Cosmos DB deployment. Availability Zone option for the write region can be enabled at the time of account provisioning.
 select '+ Add region' to add a read region. Check the box for 'Availability Zone'.
 
-#### Service-Managed failover: It allows Azure Cosmos DB to fail over the write region of multi-region account. Region 
+### Service-Managed failover: It allows Azure Cosmos DB to fail over the write region of multi-region account. Region 
 failovers are detected and handled by Azure and don't require any changes from the application.
 
 5.2: Select "Service-Managed Failover" option to failover the database to read region at the time region outage.
@@ -383,7 +383,8 @@ Select the "On" button under "Enable Service-Managed Failover".
 
 It will take sometime to enable the failover option.
 
-Autoscale: It allows you to scale the throughput (RU/s) of your database or container automatically and instantly. 
+### Autoscale for scalability
+It allows you to scale the throughput (RU/s) of your database or container automatically and instantly. 
 The throughput is scaled based on the usage, without impacting the availability, latency, throughput, or 
 performance of the workload.
 
@@ -398,7 +399,7 @@ Change Max RU/s to '2000'' and select save button.
 
 It will change the throughput instantly without impacting the current workloads.
 
-Fast Response Time:
+### Sub Millisecond Fast Response Time
 
 
 
