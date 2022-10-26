@@ -357,7 +357,8 @@ Repeat the above step with 'ADLS_RentalData' as the source dataset and  'DS_stra
 
 Congratullations! You have successfully completed Challenge-4!!
 
-## Challeng-5: Validate Cosmos DB features auto failover for high availability, auto scale for scalability and low latency response
+## Challenge-5: Validate Cosmos DB features auto failover autoscale and low latency
+
 
 ### High Availability Features:
 
